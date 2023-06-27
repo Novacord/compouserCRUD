@@ -93,15 +93,15 @@ $router->put('/academic_area', function() {
     $_DATA = json_decode(file_get_contents('php://input'), true);
     global $credenciales;
     $conn = $credenciales->getConnection();
-    $res = $conn->prepare('UPDATE academic_area SET id_area = :id_area, id_staff = :id_staff, id_position = :id_position, id_journeys = :id_journeys WHERE id = :id');
-    $res->bindvalue("id", $_DATA['id']);
-    $res->bindvalue("id_area", $_DATA['id_area']);
-    $res->bindvalue("id_staff", $_DATA['id_staff']);
-    $res->bindvalue("id_position", $_DATA['id_position']);
-    $res->bindvalue("id_journeys", $_DATA['id_journeys']);
+    $res = $conn->prepare('UPDATE academic_area SET id_area = :id_area, id_staff = :id_staff, id_position = :id_position, id_journey = :id_journey WHERE id = :id');
+    $res->bindValue(":id", $_DATA['id']);
+    $res->bindValue(":id_area", $_DATA['id_area']);
+    $res->bindValue(":id_staff", $_DATA['id_staff']);
+    $res->bindValue(":id_position", $_DATA['id_position']);
+    $res->bindValue(":id_journey", $_DATA['id_journey']);
     $res->execute();
-    $res = $res->rowCount();
-    echo json_encode($res);
+    $rowCount = $res->rowCount();
+    echo json_encode($rowCount);
 });
 
 $router->post("/academic_area", function(){
@@ -173,7 +173,8 @@ $router->post("/admin_area", function(){
     $_DATA = json_decode(file_get_contents("php://input"), true);
     global $credenciales;
     $conn = $credenciales->getConnection();
-    $res = $conn->prepare("INSERT INTO admin_area (id_area, id_staff, id_position, id_journey) VALUES (:id_area, :id_staff, :id_position, :id_journey)");
+    $res = $conn->prepare("INSERT INTO admin_area (id, id_area, id_staff, id_position, id_journey) VALUES (:id, :id_area, :id_staff, :id_position, :id_journey)");
+    $res->bindParam("id", $_DATA['id']);
     $res->bindParam("id_area", $_DATA['id_area']);
     $res->bindParam("id_staff", $_DATA['id_staff']);
     $res->bindParam("id_position", $_DATA['id_position']);

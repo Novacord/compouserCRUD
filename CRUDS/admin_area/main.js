@@ -131,7 +131,7 @@ allProgress.forEach(item=> {
 
 async function fetchData() {
     try {
-        const response = await fetch('http://localhost/compouserCRUD/uploads/academic_area');
+        const response = await fetch('http://localhost/compouserCRUD/uploads/admin_area');
         if (!response.ok) {
             throw new Error('Error en la petición');
         }
@@ -191,7 +191,7 @@ async function fetchData() {
 
 async function eliminarElemento(id) {
     try {
-        const response = await fetch(`http://localhost/compouserCRUD/uploads/academic_area/`, {
+        const response = await fetch(`http://localhost/compouserCRUD/uploads/admin_area`, {
             method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json'
@@ -216,7 +216,7 @@ async function editarElemento(data) {
 	data.id_journey = parseInt(data.id_journey)
 	console.log(data)
 	try {
-		const response = await fetch('http://localhost/compouserCRUD/uploads/academic_area', {
+		const response = await fetch('http://localhost/compouserCRUD/uploads/admin_area', {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json'
@@ -237,7 +237,7 @@ async function editarElemento(data) {
 
 async function ValorEditElemento(id) {
     try {
-        const response = await fetch(`http://localhost/compouserCRUD/uploads/academic_area/${id}`, {
+        const response = await fetch(`http://localhost/compouserCRUD/uploads/admin_area/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -271,7 +271,7 @@ form.addEventListener('submit', async (e) => {
     data.id_position = parseInt(data.id_position)
     data.id_journey = parseInt(data.id_journey)
     console.log(data)
-    const response = await fetch('http://localhost/compouserCRUD/uploads/academic_area', {
+    const response = await fetch('http://localhost/compouserCRUD/uploads/admin_area', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
