@@ -27,9 +27,9 @@
 				</ul>
 			</li> -->
 			<li><a href="../academic_area/index.html"><i class='bx bxs-graduation icon'></i></i> Academic Area</a></li>
-			<li><a href="#"><i class='bx bxs-user icon'></i> Admin_Area</a></li>
-			<li><a href="../campers/index.html"><i class='bx bxs-user icon'></i> campers</a></li>
-			<li><a href="../campers/index.html"> <i class='bx bxs-carousel icon' ></i></i> chapters</a></li>
+			<li><a href="../admin_area/index.html"><i class='bx bxs-user icon'></i></i> Admin_Area</a></li>
+			<li><a href="#"><i class='bx bxs-user icon'></i> campers</a></li>
+			<li><a href="../campers/index.html"><i class='bx bxs-carousel icon' ></i></i> chapters</a></li>
 			<li class="divider" data-text="table and forms">Table and forms</li>
 			<li><a href="#"><i class='bx bx-table icon' ></i> Tables</a></li>
 			<li>
@@ -83,23 +83,39 @@
 					<form id="form">
 						<div class="mb-3">
 						  <label for="exampleInputEmail1" class="form-label">id</label>
-						  <input type="text" class="form-control" id="exampleInputEmail1" name="id" aria-describedby="emailHelp">
+						  <input type="text" class="form-control" id="" name="id" aria-describedby="emailHelp">
 						</div>
 						<div class="mb-3">
-							<label for="exampleInputEmail1" class="form-label">id area</label>
-							<input type="text" class="form-control" id="exampleInputEmail1" name="id_area" aria-describedby="emailHelp">
-						  </div>
-						<div class="mb-3">
-							<label for="exampleInputEmail1" class="form-label">id staff</label>
-							<input type="text" class="form-control" id="exampleInputEmail1" name="id_staff" aria-describedby="emailHelp">
+							<label for="exampleInputEmail1" class="form-label">id_team_schedule</label>
+							<input type="text" class="form-control" id="" name="id_team_schedule" aria-describedby="emailHelp">
 						  </div>
 						  <div class="mb-3">
-							<label for="exampleInputEmail1" class="form-label">id position</label>
-							<input type="text" class="form-control" id="exampleInputEmail1" name="id_position" aria-describedby="emailHelp">
+							<label for="exampleInputEmail1" class="form-label">id_router</label>
+							<input type="text" class="form-control" id="" name="id_route" aria-describedby="emailHelp">
 						  </div>
 						  <div class="mb-3">
-							<label for="exampleInputEmail1" class="form-label">id journey</label>
-							<input type="text" class="form-control" id="exampleInputEmail1" name="id_journey" aria-describedby="emailHelp">
+							<label for="exampleInputEmail1" class="form-label">id_trainer</label>
+							<input type="text" class="form-control" id="" name="id_trainer" aria-describedby="emailHelp">
+						  </div>
+						  <div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">id_psycologist</label>
+							<input type="text" class="form-control" id="" name="id_psycologist" aria-describedby="emailHelp">
+						  </div>
+						  <div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">id_teacher</label>
+							<input type="text" class="form-control" id="" name="id_teacher" aria-describedby="emailHelp">
+						  </div>
+						  <div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">id_level</label>
+							<input type="text" class="form-control" id="" name="id_level" aria-describedby="emailHelp">
+						  </div>
+						  <div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">id_journey</label>
+							<input type="text" class="form-control" id="" name="id_journey" aria-describedby="emailHelp">
+						  </div>
+						  <div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">id_staff</label>
+							<input type="text" class="form-control" id="" name="id_staff" aria-describedby="emailHelp">
 						  </div>
 						<button type="submit" class="btn btn-primary">Submit</button>
 						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
@@ -110,10 +126,14 @@
 						<thead>
 						  <tr>
 							<th scope="col">id</th>
-							<th scope="col">id area</th>
-							<th scope="col">id staff</th>
-							<th scope="col">id position</th>
-							<th scope="col">id journey</th>
+							<th scope="col">id_team_schedule</th>
+							<th scope="col">id_router</th>
+							<th scope="col">id_trainer</th>
+							<th scope="col">id_psycologist</th>
+							<th scope="col">id_teacher</th>
+							<th scope="col">id_level</th>
+							<th scope="col">id_journey</th>
+							<th scope="col">id_staff</th>
 							<th scope="col">Editar/Borrar</th>
 						  </tr>
 						</thead>
@@ -136,21 +156,37 @@
 			<div class="modal-body">
 				<form id="formModal">
 					<div class="mb-3">
-						<label for="exampleInputEmail1" class="form-label">id area</label>
-						<input type="text" class="form-control" id="area" name="id_area" aria-describedby="emailHelp">
-					</div>
-					<div class="mb-3">
-						<label for="exampleInputEmail1" class="form-label">id staff</label>
-						<input type="text" class="form-control" id="staff" name="id_staff" aria-describedby="emailHelp">
-					</div>
-					<div class="mb-3">
-						<label for="exampleInputEmail1" class="form-label">id position</label>
-						<input type="text" class="form-control" id="position" name="id_position" aria-describedby="emailHelp">
-					</div>
-					<div class="mb-3">
-						<label for="exampleInputEmail1" class="form-label">id journey</label>
-						<input type="text" class="form-control" id="journey" name="id_journey" aria-describedby="emailHelp">
-					</div>
+						<label for="exampleInputEmail1" class="form-label">id_team_schedule</label>
+						<input type="text" class="form-control" id="id_team_schedule" name="id_team_schedule" aria-describedby="emailHelp">
+					  </div>
+					  <div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">id_router</label>
+						<input type="text" class="form-control" id="id_route" name="id_route" aria-describedby="emailHelp">
+					  </div>
+					  <div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">id_trainer</label>
+						<input type="text" class="form-control" id="id_trainer" name="id_trainer" aria-describedby="emailHelp">
+					  </div>
+					  <div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">id_psycologist</label>
+						<input type="text" class="form-control" id="id_psycologist" name="id_psycologist" aria-describedby="emailHelp">
+					  </div>
+					  <div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">id_teacher</label>
+						<input type="text" class="form-control" id="id_teacher" name="id_teacher" aria-describedby="emailHelp">
+					  </div>
+					  <div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">id_level</label>
+						<input type="text" class="form-control" id="id_level" name="id_level" aria-describedby="emailHelp">
+					  </div>
+					  <div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">id_journey</label>
+						<input type="text" class="form-control" id="id_journey" name="id_journey" aria-describedby="emailHelp">
+					  </div>
+					  <div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">id_staff</label>
+						<input type="text" class="form-control" id="id_staff" name="id_staff" aria-describedby="emailHelp">
+					  </div>
 				</form>
 			</div>
 			<div class="modal-footer">

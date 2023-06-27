@@ -202,7 +202,7 @@ $router->delete("/admin_area", function(){
 $router->get('/areas', function() {
     global $credenciales;
     $conn = $credenciales->getConnection();
-    $res = $conn->prepare('SELECT * FROM areas');
+    $res = $conn->prepare("SELECT * FROM areas");
     $res->execute();
     $res = $res->fetchAll(\PDO::FETCH_ASSOC);
     echo json_encode($res);
@@ -234,7 +234,8 @@ $router->post("/areas", function(){
     $_DATA = json_decode(file_get_contents("php://input"), true);
     global $credenciales;
     $conn = $credenciales->getConnection();
-    $res = $conn->prepare("INSERT INTO areas (name_area) VALUES (:name_area)");
+    $res = $conn->prepare("INSERT INTO areas (id, name_area) VALUES (:id, :name_area)");
+    $res->bindParam("id", $_DATA['id']);
     $res->bindParam("name_area", $_DATA['name_area']);
     $res->execute();
     $res = $res->rowCount();
@@ -275,29 +276,40 @@ $router->get("/campers/{id}", function($id){
     echo json_encode($res);
 });
 
-$router->put('/campers', function() {
+$router->put('/campers', function() use ($credenciales) {
     $_DATA = json_decode(file_get_contents('php://input'), true);
-    global $credenciales;
     $conn = $credenciales->getConnection();
-    $res = $conn->prepare('UPDATE campers SET nombre = :nombre, edad = :edad WHERE id = :id');
-    $res->bindValue("id", $_DATA['id']);
-    $res->bindValue("nombre", $_DATA['nombre']);
-    $res->bindValue("edad", $_DATA['edad']);
+    $res = $conn->prepare('UPDATE campers SET id_team_schedule = :id_team_schedule, id_route = :id_route, id_trainer = :id_trainer, id_psycologist = :id_psycologist, id_teacher = :id_teacher, id_level = :id_level, id_journey = :id_journey, id_staff = :id_staff WHERE id = :id');
+    $res->bindParam("id_team_schedule", $_DATA['id_team_schedule']);
+    $res->bindParam("id_route", $_DATA['id_route']);
+    $res->bindParam("id_trainer", $_DATA['id_trainer']);
+    $res->bindParam("id_psycologist", $_DATA['id_psycologist']);
+    $res->bindParam("id_teacher", $_DATA['id_teacher']);
+    $res->bindParam("id_level", $_DATA['id_level']);
+    $res->bindParam("id_journey", $_DATA['id_journey']);
+    $res->bindParam("id_staff", $_DATA['id_staff']);
+    $res->bindParam("id", $_DATA['id']);
     $res->execute();
-    $res = $res->rowCount();
-    echo json_encode($res);
+    $rowCount = $res->rowCount();
+    echo json_encode($rowCount);
 });
 
-$router->post("/campers", function(){
+$router->post("/campers", function() use ($credenciales) {
     $_DATA = json_decode(file_get_contents("php://input"), true);
-    global $credenciales;
     $conn = $credenciales->getConnection();
-    $res = $conn->prepare("INSERT INTO campers (nombre, edad) VALUES (:nombre, :edad)");
-    $res->bindParam("nombre", $_DATA['nombre']);
-    $res->bindParam("edad", $_DATA['edad']);
+    $res = $conn->prepare("INSERT INTO campers (id, id_team_schedule, id_route, id_trainer, id_psycologist, id_teacher, id_level, id_journey, id_staff) VALUES (:id, :id_team_schedule, :id_route, :id_trainer, :id_psycologist, :id_teacher, :id_level, :id_journey, :id_staff)");
+    $res->bindParam("id", $_DATA['id']);
+    $res->bindParam("id_team_schedule", $_DATA['id_team_schedule']);
+    $res->bindParam("id_route", $_DATA['id_route']);
+    $res->bindParam("id_trainer", $_DATA['id_trainer']);
+    $res->bindParam("id_psycologist", $_DATA['id_psycologist']);
+    $res->bindParam("id_teacher", $_DATA['id_teacher']);
+    $res->bindParam("id_level", $_DATA['id_level']);
+    $res->bindParam("id_journey", $_DATA['id_journey']);
+    $res->bindParam("id_staff", $_DATA['id_staff']);
     $res->execute();
-    $res = $res->rowCount();
-    echo json_encode($res);
+    $rowCount = $res->rowCount();
+    echo json_encode($rowCount);
 });
 
 $router->delete("/campers", function(){
